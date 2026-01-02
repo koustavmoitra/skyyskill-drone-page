@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkySkill - Professional Drone Training</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #24336a;
+            --secondary: #d28501;
+            --dark: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:  sans-serif;
+            overflow-x: hidden;
+            background: #fff;
+        }
+
+        .navbar {
+            background: var(--primary) !important;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary) !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            margin: 0 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2544 100%);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--secondary);
+            opacity: 0.1;
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s 0.2s backwards;
+        }
+
+        .btn-primary-custom {
+            background: var(--secondary);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 2px solid black;
+            border-radius: 50px;
+            color: #fff;
+            transition: all 0.3s;
+            animation: fadeInUp 1s 0.4s backwards;
+        }
+
+        .btn-primary-custom:hover {
+            background: #c68a2a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(210, 133, 1, 0.4);
+            color: white;
+            border: 2px solid black;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 2.5rem;
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            height: 100%;
+            /* border: 2px solid transparent; */
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-color: var(--secondary);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), #1a2544);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            font-size: 1.8rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotate(360deg);
+            background: var(--secondary);
+            color: #fff;
+        }
+
+/* ---- Course Card ---- */
+.course-card {
+  background: #fff;
+  border: 1px solid var(--secondary);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  height: 100%;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+/* Image */
+.course-img {
+  height: 240px;
+  background: #f5f5f5; /* neutral placeholder */
+}
+
+.course-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Body */
+.course-body {
+  padding: 1.8rem;
+}
+
+.course-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 0.8rem;
+}
+
+/* Meta */
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.meta-item i {
+  color: var(--secondary);
+}
+
+/* Price */
+.price {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .course-img {
+    height: 200px;
+  }
+}
+
+        /* ---- mentor card ---- */
+        .mentor-card {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid var(--secondary);
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .mentor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .mentor-img {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #fff;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* --- advantages --- */
+        .advantage-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: #fff;
+            border: 1px solid ;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .advantage-item:hover {
+            background: #fff;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            transform: translateX(10px);
+        }
+
+        .advantage-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        footer {
+            background: var(--primary);
+            color: #fff;
+            padding: 3rem 0 1rem;
+            margin-top: 5rem;
+        }
+
+        .course-content-item {
+            background: #fff;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .course-content-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+
+        .certificate-section {
+            background: linear-gradient(135deg, var(--primary), #1a2544);
+            padding: 3rem;
+            border-radius: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .certificate-img {
+            max-width: 100%;
+            height: 400px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+            margin: 2rem auto;
+        }
+
+        .stats-box {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .stats-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .page-selector {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .page-btn {
+            background: var(--secondary);
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(210, 133, 1, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .page-btn:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <!-- Main Page -->
+    <div id="mainPage">
+      
+                <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                
+                <!-- Left Content -->
+                <div class="col-lg-6 hero-content">
+                    <h1>Master the Sky with <span style="color: var(--secondary);">Professional</span> Drone Training</h1>
+                    <p>
+                    Transform your career with cutting-edge drone technology and expert guidance.
+                    Join India's premier drone training academy.
+                    </p>
+                    <button class="btn btn-primary-custom">
+                    Enroll Now <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+                </div>
+
+                <!-- Right Image -->
+                <div class="col-lg-6 text-center">
+                    <div class="hero-image-wrapper">
+                    <!-- Replace src with your drone image URL -->
+                    <img 
+                        src="/droneimg.png"
+                        alt="Drone Training"
+                        class="hero-image"
+                        width="500"
+                    >
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <section class="py-5" id="features">
+            <div class="container my-5">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Key Features</h2>
+                    <p class="text-muted mt-3">Why SkySkill is your best choice for drone training</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h4 class="mb-3" style="color: var(--primary);">DGCA Certified</h4>
+                            <p class="text-muted">Get officially recognized certification from DGCA to fly drones professionally across India.</p>
+                        </div>  
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h4 class="mb-3" style="color: var(--primary);">Expert Instructors</h4>
+                            <p class="text-muted">Learn from industry professionals with years of real-world drone operation experience.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h4 class="mb-3" style="color: var(--primary);">Hands-on Training</h4>
+                            <p class="text-muted">Practice with professional-grade drones and simulators in real-world scenarios.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h4 class="mb-3" style="color: var(--primary);">Job Assistance</h4>
+                            <p class="text-muted">Get connected with leading drone companies and startups for career opportunities.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4 class="mb-3" style="color: var(--primary);">Flexible Schedule</h4>
+                            <p class="text-muted">Weekend and weekday batches available to fit your schedule and convenience.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h4 class="mb-3" style="color: var(--primary);">Lifetime Support</h4>
+                            <p class="text-muted">Access to community, resources, and mentorship even after course completion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses -->
+        <section class="py-5 bg-light" id="courses">
+        <div class="container my-5">
+
+            <div class="text-center mb-5">
+            <h2 class="section-title">Our Courses</h2>
+            <p class="text-muted mt-3">
+                Choose the perfect course to start your drone journey
+            </p>
+            </div>
+
+            <div class="row g-4">
+
+            <!-- Course 1 -->
+            <div class="col-lg-6">
+                <div class="course-card">
+                
+                <!-- Image -->
+                <div class="course-img">
+                    <img src="/dronecard.png" alt="Drone Dev Engineer Course">
+                </div>
+
+                <div class="course-body">
+                    <h3 class="course-title">Drone Dev Engineer</h3>
+                    <p class="text-muted">
+                    Master the fundamentals of drone operation, safety protocols,
+                    and DGCA regulations for micro and small category drones.
+                    </p>
+
+                    <div class="course-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>1.5 Months</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-signal"></i>
+                        <span>Beginner</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-users"></i>
+                        <span>115 Students</span>
+                    </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                    <h4 class="price">₹9,999</h4>
+                    <a class="btn btn-primary-custom" href="/drone-course.html">
+                        View Details <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="col-lg-6">
+                <div class="course-card">
+
+                <!-- Image -->
+                <div class="course-img">
+                    <img src="/dronecard.png" alt="Advanced Drone Course">
+                </div>
+
+                <div class="course-body">
+                    <h3 class="course-title">
+                    Advanced Drone Dev Engineer with AI & DGCA Licence
+                    </h3>
+                    <p class="text-muted">
+                    Advanced techniques including AI-powered drone systems,
+                    surveying, mapping, and commercial applications.
+                    </p>
+
+                    <div class="course-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>3 Months</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-signal"></i>
+                        <span>Advanced</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-users"></i>
+                        <span>93 Students</span>
+                    </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                    <h4 class="price">₹41,999</h4>
+                    <a class="btn btn-primary-custom" href="/dronecourse2.html">
+                        View Details <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
+            </div>
+        </div>
+        </section>
+
+        <!-- Mentors -->
+        <section class="py-5" id="mentors">
+            <div class="container my-5">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Meet Our Mentors</h2>
+                    <p class="text-muted mt-3">Learn from industry experts and certified professionals</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-3">
+                        <div class="mentor-card">
+                            <div class="mentor-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5 style="color: var(--primary);">Person A</h5>
+                            <p class="text-muted mb-2">Master Trainer</p>
+                            <p class="small text-muted">15+ years in aviation, DGCA certified with 5000+ flight hours</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mentor-card">
+                            <div class="mentor-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5 style="color: var(--primary);">Person B</h5>
+                            <p class="text-muted mb-2">Trainer</p>
+                            <p class="small text-muted">Award-winning cinematographer, 200+ commercial projects</p>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-3">
+                        <div class="mentor-card">
+                            <div class="mentor-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5 style="color: var(--primary);">Amit Patel</h5>
+                            <p class="text-muted mb-2">Technical Specialist</h5>
+                            <p class="small text-muted">Drone tech engineer, ex-DRDO, 10+ years experience</p>
+                        </div>
+                    </div> -->
+                    <!-- <div class="col-md-3">
+                        <div class="mentor-card">
+                            <div class="mentor-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5 style="color: var(--primary);">Sneha Reddy</h5>
+                            <p class="text-muted mb-2">Survey & Mapping Lead</p>
+                            <p class="small text-muted">GIS expert, completed 100+ mapping projects nationwide</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Advantages -->
+        <section class="py-5 bg-light">
+            <div class="container my-5">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Why Choose SkySkill?</h2>
+                    <p class="text-muted mt-3">Your success is our priority</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="advantage-item">
+                            <div class="advantage-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--primary);">100% Certification Rate</h5>
+                                <p class="text-muted mb-0">All our students successfully complete DGCA certification with comprehensive preparation and support.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="advantage-item">
+                            <div class="advantage-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--primary);">Industry Partnerships</h5>
+                                <p class="text-muted mb-0">Collaborations with top drone companies ensuring job placements and internship opportunities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="advantage-item">
+                            <div class="advantage-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--primary);">State-of-Art Equipment</h5>
+                                <p class="text-muted mb-0">Train with latest DJI, Parrot, and custom-built drones worth over ₹50 lakhs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="advantage-item">
+                            <div class="advantage-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--primary);">Dedicated Training Facility</h5>
+                                <p class="text-muted mb-0">15-acre campus with designated flying zones, simulators, and classroom facilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced drone dev engineer with AI and DGCA licence</title>
+    <!-- <link rel="stylesheet" href="/index.css" /> -->
+
+    <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* ================= ROOT & BASE ================= */
+:root {
+  --primary: #24336a;
+  --secondary: #d28501;
+  --dark: #1a1a1a;
+}
+
+body {
+  font-family: sans-serif;
+  background: #ffffff;
+  color: #222;
+}
+
+/* ================= HERO ================= */
+.hero {
+  background: var(--primary);
+  color: #ffffff;
+  padding: 90px 0;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  opacity: 0.95;
+  margin-top: 15px;
+}
+
+/* ================= BUTTON ================= */
+.btn-primary-custom {
+  background: var(--secondary);
+  color: #fff;
+  border: 2px solid #111;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+  border: 2px solid #111;
+  background: #b87400;
+  transform: translateY(-2px);
+}
+
+.hero-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.25));
+}
+
+/* ================= STATS ================= */
+.stats-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 14px;
+  text-align: center;
+  min-width: 140px;
+}
+
+.stats-number {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+/* ================= SECTION ================= */
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--primary);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: var(--secondary);
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+}
+
+/* ================= FEATURE CARD ================= */
+.feature-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid var(--secondary);
+  height: 100%;
+  transition: 0.3s ease;
+}
+
+.feature-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+/* ================= COURSE CONTENT ================= */
+.course-content-item {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 14px;
+  border-left: 4px solid var(--secondary);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+}
+
+.course-content-item ul {
+  padding-left: 18px;
+}
+
+/* ================= CERTIFICATE ================= */
+.certificate-section {
+  background: var(--primary);
+  border-radius: 20px;
+  padding: 50px;
+}
+
+.certificate-img {
+  background: #ffffff;
+  border-radius: 16px;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.certificate-image {
+  max-height: 300px;
+  object-fit: contain;
+}
+
+/* ================= CERTIFICATE BENEFITS ALIGNMENT FIX ================= */
+
+.cert-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.cert-benefit i {
+  color: var(--secondary);
+  font-size: 1.1rem;
+  margin-top: 3px;
+  min-width: 20px;
+}
+
+.cert-text h6 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.cert-text p {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .certificate-section {
+    padding: 30px;
+  }
+
+  .certificate-img {
+    height: 260px;
+  }
+}
+/* ================= MENTORS ================= */
+/* ---- mentor card ---- */
+        .mentor-card {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid var(--secondary);
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .mentor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .mentor-img {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #fff;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+
+/* ================= ADVANTAGES ================= */
+.advantage-item {
+  background: #f8f9fa;
+  padding: 22px;
+  border-radius: 16px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+    border: 1px solid var(--secondary);
+  border-left: 4px solid var(--secondary);
+
+}
+
+.advantage-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--secondary);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+/* ================= faq ================= */
+
+.custom-accordion .accordion-item {
+  border: none;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.custom-accordion .accordion-button {
+  background: #ffffff;
+  color: var(--primary);
+  font-weight: 600;
+  padding: 18px 20px;
+  box-shadow: none;
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.custom-accordion .accordion-button::after {
+  filter: brightness(0.6);
+}
+
+.custom-accordion .accordion-button:not(.collapsed)::after {
+  filter: brightness(5);
+}
+
+.custom-accordion .accordion-body {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.7;
+  padding: 20px;
+  background: #ffffff;
+}
+
+/* Icon styling */
+.faq-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--secondary);
+  color: #fff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+  font-size: 0.9rem;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 0;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .stats-box {
+    width: 100%;
+  }
+
+  .certificate-section {
+    padding: 30px;
+  }
+
+  .certificate-img {
+    height: 260px;
+    margin-bottom: 30px;
+  }
+}
+
+
+/* ================= ENROLL SECTION ================= */
+
+.enroll-section {
+  background: linear-gradient(135deg, #f8f9fc, #ffffff);
+}
+
+.enroll-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.enroll-title span {
+  color: var(--secondary);
+}
+
+.enroll-text {
+  font-size: 1.05rem;
+  color: #555;
+  margin-top: 15px;
+  max-width: 520px;
+}
+
+.enroll-points {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px;
+}
+
+.enroll-points li {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.enroll-points i {
+  color: var(--primary);
+}
+
+/* Card */
+.enroll-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.price-box {
+  margin-bottom: 25px;
+}
+
+.price-label {
+  font-size: 0.9rem;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.price {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 10px 0;
+}
+
+.price span {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.price-note {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Button */
+.btn-enroll {
+  background: var(--secondary);
+  color: #fff;
+  padding: 16px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 50px;
+  border: 2px solid var(--dark);
+  transition: all 0.3s ease;
+}
+
+.btn-enroll:hover {
+  background: #b87400;
+  color: white;
+  border: 1px solid black;
+  transform: translateY(-2px);
+}
+
+/* Footer note */
+.enroll-note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .enroll-title {
+    font-size: 1.9rem;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+    
+
+      <!-- Course Detail Page -->
+    <div id="coursePage">
+
+        <!-- Course Hero -->
+        <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center g-4">
+
+            <!-- Left Content -->
+            <div class="col-lg-6 hero-content">
+                <h1 style="font-weight: 800;">
+                    Become an <span style="color: var(--secondary);">Advanced Drone Dev Engineer</span><br>
+                    Build Autonomous & AI-Powered UAV Systems
+                    </h1>
+
+                    <p class="mt-4">
+                    A 3-month advanced drone engineering program focused on AI, autonomy,
+                    flight firmware, vision systems, and DGCA-aligned operations.
+                    Designed for learners who want deep technical mastery and industry-grade expertise.
+                    </p>
+
+                    <button class="btn btn-primary-custom mt-4">
+                    Enroll Now <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+
+            </div>
+
+            <!-- Right Image -->
+            <div class="col-lg-6 text-center">
+                <div class="hero-image-wrapper">
+                <!-- Add your image URL later -->
+                <img
+                    src="/dronecard.png"
+                    alt="Drone Dev Engineer Training"
+                    class="hero-image"
+                    width="500"
+                >
+                </div>
+            </div>
+
+            </div>
+        </div>
+        </section>
+
+
+        <!-- Course Overview -->
+
+            <section class="py-5" id="overview">
+            <div class="container my-5">
+                <div class="row g-4">
+
+                <!-- Left Content -->
+                <div class="col-lg-8">
+                    <h2 class="section-title mb-4">Course Overview</h2>
+
+                 <p class="lead text-muted">
+                    The Advanced Drone Dev Engineer with AI & DGCA Licence program is an
+                    intensive 3-month technical course designed to train professionals
+                    in autonomous UAV systems, AI-based navigation, drone firmware,
+                    computer vision, and commercial drone operations.
+                    </p>
+
+                    <p class="lead text-muted mt-3">
+                    This program goes beyond basic drone assembly and focuses on
+                    PX4 / ArduPilot firmware, MAVLink communication, AI vision,
+                    SLAM, multi-drone coordination, payload systems, and real-world
+                    industry deployment scenarios.
+                    </p>
+
+                    <!-- Key Highlights -->
+                    <div class="mt-5">
+
+            <div class="d-flex gap-4 mb-4">
+            <div class="feature-icon"><i class="fas fa-brain"></i></div>
+            <div>
+                <h5>AI-Powered Drone Systems</h5>
+                <p class="text-muted">
+                Vision-based navigation, object detection, SLAM, and autonomy using Python
+                </p>
+            </div>
+            </div>
+
+            <div class="d-flex gap-4 mb-4">
+            <div class="feature-icon"><i class="fas fa-code"></i></div>
+            <div>
+                <h5>Firmware & Flight Software</h5>
+                <p class="text-muted">
+                PX4, ArduPilot, MAVLink, GCS tools, tuning, and flight testing
+                </p>
+            </div>
+            </div>
+
+            <div class="d-flex gap-4 mb-4">
+            <div class="feature-icon"><i class="fas fa-route"></i></div>
+            <div>
+                <h5>Autonomous & Multi-Drone Operations</h5>
+                <p class="text-muted">
+                Waypoints, obstacle avoidance, swarming, and mission planning
+                </p>
+            </div>
+            </div>
+
+            </div>
+
+                </div>
+
+                <!-- Right Card -->
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+                    <div class="card-body p-4" style="background: linear-gradient(135deg, var(--primary), #1a2544);">
+
+                        <h4 class="text-white mb-4">
+                        <i class="fas fa-info-circle me-2"></i>Course Details
+                        </h4>
+
+                        <div class="mb-3 pb-3" style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+                        <div class="d-flex justify-content-between text-white">
+                            <span><i class="fas fa-clock me-2" style="color: var(--secondary);"></i>Duration</span>
+                            <strong>3 Months</strong> 
+                        </div>
+                        </div>
+
+                        <div class="mb-3 pb-3" style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+                        <div class="d-flex justify-content-between text-white">
+                            <span><i class="fas fa-signal me-2" style="color: var(--secondary);"></i>Level</span>
+                            <strong>Advanced</strong> 
+                        </div>
+                        </div>
+
+                        <div class="mb-3 pb-3" style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+                        <div class="d-flex justify-content-between text-white">
+                            <span><i class="fas fa-users me-2" style="color: var(--secondary);"></i>Batch Size</span>
+                            <strong>Max 15</strong>
+                        </div>
+                        </div>
+
+                        <div class="mb-3 pb-3" style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+                        <div class="d-flex justify-content-between text-white">
+                            <span><i class="fas fa-calendar me-2" style="color: var(--secondary);"></i>Schedule</span>
+                            <strong>Flexible</strong>
+                        </div>
+                        </div>
+
+                        <div class="mb-3 pb-3" style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+                        <div class="d-flex justify-content-between text-white">
+                            <span><i class="fas fa-language me-2" style="color: var(--secondary);"></i>Language</span>
+                            <strong>English / Hindi</strong>
+                        </div>
+                        </div>
+
+                        <div class="mb-3 pb-3" style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+                        <div class="d-flex justify-content-between text-white">
+                            <span><i class="fas fa-certificate me-2" style="color: var(--secondary);"></i>Certificate</span>
+                            <strong>Advanced Certification</strong>
+                        </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between text-white">
+                        <span><i class="fas fa-tag me-2" style="color: var(--secondary);"></i>Price</span>
+                        <strong style="font-size: 1.5rem; color: var(--secondary);">₹41,999 + GST</strong>
+                        </div>
+
+                        <p class="text-white mt-2" style="font-size: 0.85rem;">
+                        Accommodation charges extra
+                        </p>
+
+                        <button class="btn w-100 mt-4"
+                        style="background: var(--secondary); color: #fff; font-weight: 600; padding: 12px;">
+                        Enroll Now
+                        </button>
+
+                    </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+            </section>
+
+
+        <!-- Why Take This Course -->
+        <section class="py-5 bg-light" id="why-course">
+        <div class="container my-5">
+            
+            <div class="text-center mb-5">
+            <h2 class="section-title">Why Should You Take This Course?</h2>
+            <p class="text-muted mt-3">
+                Build deep technical expertise and become industry-ready in drone engineering
+            </p>
+            </div>
+
+            <div class="row g-4">
+
+            <!-- Industry Growth -->
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card text-center">
+                <div class="feature-icon mx-auto">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h5 style="color: var(--primary); font-weight: 700;">Rapidly Growing Industry</h5>
+                <p class="text-muted mt-3">
+                    UAV and drone engineering is one of the fastest-growing tech sectors with demand across defense, agriculture, logistics, and AI.
+                </p>
+                </div>
+            </div>
+
+            <!-- High Salary -->
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card text-center">
+                <div class="feature-icon mx-auto">
+                    <i class="fas fa-rupee-sign"></i>
+                </div>
+                <h5 style="color: var(--primary); font-weight: 700;">High-Paying Engineering Roles</h5>
+                <p class="text-muted mt-3">
+                    Drone engineers earn ₹6–15 LPA with strong growth in R&D, automation, and AI-integrated UAV systems.
+                </p>
+                </div>
+            </div>
+
+            <!-- Technical Career Paths -->
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card text-center">
+                <div class="feature-icon mx-auto">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h5 style="color: var(--primary); font-weight: 700;">Multiple Technical Career Paths</h5>
+                <p class="text-muted mt-3">
+                    Work as UAV design engineer, flight control engineer, AI drone developer, or start your own drone startup.
+                </p>
+                </div>
+            </div>
+
+            <!-- DGCA & Regulations -->
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card text-center">
+                <div class="feature-icon mx-auto">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h5 style="color: var(--primary); font-weight: 700;">DGCA & Regulatory Knowledge</h5>
+                <p class="text-muted mt-3">
+                    Learn airspace rules, certifications, and compliance essential for legal drone development and operations in India.
+                </p>
+                </div>
+            </div>
+
+            <!-- No Prior Experience -->
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card text-center">
+                <div class="feature-icon mx-auto">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h5 style="color: var(--primary); font-weight: 700;">Beginner Friendly, Industry Ready</h5>
+                <p class="text-muted mt-3">
+                    Designed for students and professionals with no prior drone experience—concepts start from fundamentals.
+                </p>
+                </div>
+            </div>
+
+            <!-- Advanced Tech -->
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card text-center">
+                <div class="feature-icon mx-auto">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h5 style="color: var(--primary); font-weight: 700;">Advanced & Future Technologies</h5>
+                <p class="text-muted mt-3">
+                    Work on AI-based navigation, computer vision, autonomous flight systems, and smart UAV architectures.
+                </p>
+                </div>
+            </div>
+
+            <!-- Industry Exposure -->
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card text-center">
+                <div class="feature-icon mx-auto">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h5 style="color: var(--primary); font-weight: 700;">Industry Exposure & Networking</h5>
+                <p class="text-muted mt-3">
+                    Get exposure to real-world drone projects, industry tools, and connect with professionals in the UAV ecosystem.
+                </p>
+                </div>
+            </div>
+
+            <!-- Proven Curriculum -->
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card text-center">
+                <div class="feature-icon mx-auto">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h5 style="color: var(--primary); font-weight: 700;">Proven, Practical Curriculum</h5>
+                <p class="text-muted mt-3">
+                    Curriculum designed by drone engineers covering hardware, firmware, AI, and real-time flight systems.
+                </p>
+                </div>
+            </div>
+
+            </div>
+        </div>
+        </section>
+
+<!-- Course Contents -->
+<section class="py-5" id="curriculum">
+  <div class="container my-5">
+
+    <div class="text-center mb-5">
+      <h2 class="section-title">Course Curriculum</h2>
+      <p class="text-muted mt-3">
+        Step-by-step engineering-focused drone development training
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+
+        <!-- Module 1 -->
+        <div class="course-content-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h4 style="color: var(--primary);">
+                <i class="fas fa-microchip me-3" style="color: var(--secondary);"></i>
+                Module 1: Introduction to Drone Technology
+              </h4>
+              <ul class="mt-3 text-muted">
+                <li>History and evolution of drones</li>
+                <li>Types of drones and real-world applications</li>
+                <li>Core components of a drone system</li>
+                <li>Current drone industry landscape</li>
+                <li>Future trends in UAV technology</li>
+              </ul>
+            </div>
+         
+          </div>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="course-content-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h4 style="color: var(--primary);">
+                <i class="fas fa-cubes me-3" style="color: var(--secondary);"></i>
+                Module 2: Drone Frames
+              </h4>
+              <ul class="mt-3 text-muted">
+                <li>Mechanical Frame Design Principles</li>
+                <li>Frame Materials Selection Criteria</li>
+                <li>Design Optimization Strategies</li>
+                <li>Manufacturing Considerations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="course-content-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h4 style="color: var(--primary);">
+                <i class="fas fa-bolt me-3" style="color: var(--secondary);"></i>
+                Module 3: Propulsion Systems
+              </h4>
+              <ul class="mt-3 text-muted">
+                <li>Motor Terminologies, principles and Selection</li>
+                <li>Electronic Speed Controllers (ESCs)</li>
+                <li>Propeller Design and Selection</li>
+                <li>System Integration and Optimization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Module 4 -->
+        <div class="course-content-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h4 style="color: var(--primary);">
+                <i class="fas fa-battery-full me-3" style="color: var(--secondary);"></i>
+                Module 4: Power System & Battery Design
+              </h4>
+              <ul class="mt-3 text-muted">
+                <li>Battery Terminologies with respect to uav’s</li>
+                <li>Power Budgeting</li>
+                <li>Battery Configuration and Pack Designing</li>
+                <li>Battery Management Systems concepts</li>
+                <li>Charger types, charging safety &Charging mechanisms</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 5 -->
+        <div class="course-content-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h4 style="color: var(--primary);">
+                <i class="fas fa-satellite me-3" style="color: var(--secondary);"></i>
+                Module 5: Sensor Integration
+              </h4>
+              <ul class="mt-3 text-muted">
+                <li>Inertial Measurement Unit (IMU) Systems</li>
+                <li>Barometric Pressure Sensors</li>
+                <li>Compass and Magnetometer Systems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 6 -->
+        <div class="course-content-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h4 style="color: var(--primary);">
+                <i class="fas fa-sliders-h me-3" style="color: var(--secondary);"></i>
+                Module 6: GPS THEORY
+              </h4>
+              <ul class="mt-3 text-muted">
+                <li>Geo-positioning concepts, HDOP, VDOP, clock error calculations</li>
+                <li>Trilateration vs triangulation in GPS signals</li>
+                <li>GNSS errors, RTK mechanisms, GNSS constellations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 7 -->
+        <div class="course-content-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h4 style="color: var(--primary);">
+                <i class="fas fa-satellite-dish me-3" style="color: var(--secondary);"></i>
+                Module 7: Communication Systems and Telemetry
+              </h4>
+              <ul class="mt-3 text-muted">
+                <li>Radio Frequency Communication Fundamentals, types, and comparison</li>
+                <li>Telemetry and Data Transmission</li>
+                <li>Video and Imaging Systems</li>
+                <li>Internet Integration and Connectivity</li>
+                <li>Security and Anti-Jamming Technologies</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- Module 8 -->
+        <div class="course-content-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h4 style="color: var(--primary);">
+                <i class="fas fa-sliders-h me-3" style="color: var(--secondary);"></i>
+                Module 8: PID Control Theory for Flight Control Systems
+              </h4>
+              <ul class="mt-3 text-muted">
+                <li>PID Control Theory Fundamentals</li>
+                <li>PID Tuning for Flight Control</li>
+                <li>Practical Implementation Considerations</li>
+                <li>Troubleshooting Common Issues</li>
+                <li>Safety and Certification Considerations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- Module 9 -->
+        <div class="course-content-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h4 style="color: var(--primary);">
+                <i class="fas fa-tools me-3" style="color: var(--secondary);"></i>
+                Module 9: Attitude Estimation and Sensor Fusion for Flight Control Systems 
+              </h4>
+              <ul class="mt-3 text-muted">
+                <li>Introduction to Attitude Estimation</li>
+                <li>Coordinate Systems and Reference Frames</li>
+                <li>Inertial Sensors and Measurement Principles</li>
+                <li>Sensor Fusion Fundamentals</li>
+                <li>Practical Implementation Considerations</li>
+                <li>Performance Evaluation and Testing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+               <!-- Module 10 -->
+        <div class="course-content-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h4 style="color: var(--primary);">
+                <i class="fas fa-helicopter me-3" style="color: var(--secondary);"></i>
+                Module 10: Flight Modes and Stabilization Systems
+              </h4>
+              <ul class="mt-3 text-muted">
+                <li>Fundamental Control Modes</li>
+                <li>Autopilot Systems and Modes</li>
+                <li>Fly-by-Wire Control Systems</li>
+                <li>Stability Augmentation Design</li>
+                <li>Mode Management and Logic</li>
+                <li>Flight Phase-Specific Modes</li>
+                <li>System Integration and Architecture</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+                      <!-- Module 11 -->
+        <div class="course-content-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h4 style="color: var(--primary);">
+                <i class="fas fa-route me-3" style="color: var(--secondary);"></i>
+                Module 11: Autonomous Navigation Systems
+              </h4>
+              <ul class="mt-3 text-muted">
+                <li>GPS-Based Navigation and Waypoint Systems</li>
+                <li>Obstacle Detection and Avoidance Techniques</li>
+                <li>Path Planning Algorithms for UAVs</li>
+                <li>Indoor Navigation and Positioning Systems</li>
+                <li>Vision-Based Navigation Methods</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+                  <!-- Module 12 -->
+        <div class="course-content-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h4 style="color: var(--primary);">
+                <i class="fas fa-camera me-3" style="color: var(--secondary);"></i>
+                Module 12: Specialized Payload Systems and Regulations
+              </h4>
+              <ul class="mt-3 text-muted">
+                <li>Gimbal Systems and Camera Stabilization/li>
+                <li>Delivery and Release Mechanismss</li>
+                <li>Sensor Payloads for Data Collection, thermal and multispectral imaging</li>
+                <li>Spraying and Precision Application Systems</li>
+                <li>Payload Integration with Flight Systems</li>
+                <li>Custom Payload Development for Special task</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+                     <!-- Module 13 -->
+        <div class="course-content-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h4 style="color: var(--primary);">
+                <i class="fas fa-tools me-3" style="color: var(--secondary);"></i>
+                Module 13: Drone Assembly and Flight onsite Practical
+              </h4>
+              <ul class="mt-3 text-muted">
+                <li>Prepare and Mount the Motors</li>
+                <li>Install and Configure ESCs</li>
+                <li>Mount Flight Controller and Basic Wiring</li>
+                <li>Install FlySky FSi6 Receiver and Radio Setup</li>
+                <li>Software Configuration and Motor Testing</li>
+                <li>Final Assembly and Pre-Flight Checks</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 14 -->
+        <div class="course-content-item">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+            <h4 style="color: var(--primary);">
+                <i class="fas fa-shield-alt me-3" style="color: var(--secondary);"></i>
+                Module 14: Regulations and Operations
+            </h4>
+            <ul class="mt-3 text-muted">
+                <li>Airspace Regulations and Classification</li>
+                <li>Certification and Registration Requirements</li>
+                <li>Flight Planning and Risk Assessment</li>
+                <li>Remote ID and Tracking Compliance</li>
+                <li>Privacy and Security Considerations</li>
+                <li>Commercial Operations Management</li>
+            </ul>
+            </div>
+        </div>
+        </div>
+
+        <!-- Module 15 -->
+<div class="course-content-item">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <h4 style="color: var(--primary);">
+        <i class="fas fa-code me-3" style="color: var(--secondary);"></i>
+        Module 15: Drone Firmware and Software
+      </h4>
+      <ul class="mt-3 text-muted">
+        <li>Open-Source Autopilot Systems (PX4, ArduPilot)</li>
+        <li>MAVLink Protocol and Communication Standards</li>
+        <li>Ground Control Station Software</li>
+        <li>Firmware Configuration and Customization</li>
+        <li>Python Integration for Drone Control</li>
+        <li>Flight Testing and Parameter Tuning</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Module 16 -->
+<div class="course-content-item">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <h4 style="color: var(--primary);">
+        <i class="fas fa-route me-3" style="color: var(--secondary);"></i>
+        Module 16: Autonomous Navigation Systems
+      </h4>
+      <ul class="mt-3 text-muted">
+        <li>GPS-Based Navigation and Waypoint Systems</li>
+        <li>Obstacle Detection and Avoidance Techniques</li>
+        <li>Path Planning Algorithms for UAVs</li>
+        <li>Indoor Navigation and Positioning Systems</li>
+        <li>Vision-Based Navigation Methods</li>
+        <li>Multi-Drone Coordination and Swarming</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Module 17 -->
+<div class="course-content-item">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <h4 style="color: var(--primary);">
+        <i class="fas fa-eye me-3" style="color: var(--secondary);"></i>
+        Module 17: Drone Vision and Perception
+      </h4>
+      <ul class="mt-3 text-muted">
+        <li>Camera Systems and Integration</li>
+        <li>Computer Vision for Drones using Python</li>
+        <li>Object Detection and Tracking from UAVs</li>
+        <li>SLAM (Simultaneous Localization and Mapping)</li>
+        <li>Depth Perception and 3D Environment Mapping</li>
+        <li>Thermal and Multispectral Imaging Systems</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Module 18 -->
+<div class="course-content-item">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <h4 style="color: var(--primary);">
+        <i class="fas fa-database me-3" style="color: var(--secondary);"></i>
+        Module 18: Data Management and Analysis
+      </h4>
+      <ul class="mt-3 text-muted">
+        <li>Telemetry Data Extraction and Flight Log Analysis</li>
+        <li>Real-Time Data Transmission Systems</li>
+        <li>Photogrammetry and 3D Model Generation</li>
+        <li>Mission Data Analysis using Python</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Module 19 -->
+<div class="course-content-item">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <h4 style="color: var(--primary);">
+        <i class="fas fa-rocket me-3" style="color: var(--secondary);"></i>
+        Module 19: Advanced Drone Development
+      </h4>
+      <ul class="mt-3 text-muted">
+        <li>Customised Drone Fabrication</li>
+        <li>Optimization of Drones for Long-Range Missions</li>
+        <li>Specialized Drone Development (Racing, Agriculture, Inspection)</li>
+        <li>Advanced Autonomous Features Implementation</li>
+        <li>Integration with IoT and Smart Systems</li>
+        <li>Industry-Specific Application Development</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+      <!-- What You'll Receive -->
+<div class="mt-5"
+     style="background: linear-gradient(135deg, var(--primary), #1a2544);
+            color: #ffffff;
+            border-radius: 18px;
+            padding: 36px;">
+
+  <h4 class="mb-3" style="font-weight: 700;">
+    <i class="fas fa-certificate me-2" style="color: var(--secondary);"></i>
+    What You’ll Receive
+  </h4>
+
+  <p class="text-light mb-4" style="opacity: 0.85; max-width: 720px;">
+    A structured learning experience designed to build strong fundamentals,
+    hands-on capability, and industry readiness in drone engineering.
+  </p>
+
+  <div class="row g-3">
+
+    <div class="col-md-6">
+      <div class="d-flex align-items-start gap-3">
+        <i class="fas fa-book mt-1" style="color: var(--secondary);"></i>
+        <span>Advanced drone engineering & AI study material</span>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="d-flex align-items-start gap-3">
+        <i class="fas fa-tools mt-1" style="color: var(--secondary);"></i>
+        <span>Hands-on autonomous drone development</span>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="d-flex align-items-start gap-3">
+        <i class="fas fa-drafting-compass mt-1" style="color: var(--secondary);"></i>
+        <span>Firmware, vision & AI implementation experience</span>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="d-flex align-items-start gap-3">
+        <i class="fas fa-users mt-1" style="color: var(--secondary);"></i>
+        <span>Industry-grade projects & real-world scenarios</span>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="d-flex align-items-start gap-3">
+        <i class="fas fa-award mt-1" style="color: var(--secondary);"></i>
+        <span>Advanced certification from SkyySkill</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        <!-- Certificate -->
+<section class="py-5 bg-light" id="certificate">
+  <div class="container my-5">
+    <div class="certificate-section">
+
+      <h2 class="text-white mb-3" style="font-weight: 900;">
+        Get Advanced Certified in Drone Engineering & Autonomous Systems
+      </h2>
+
+      <p class="text-white mb-4" style="max-width: 700px;">
+        This certification validates advanced expertise in AI-powered drones,
+        autonomous navigation, flight firmware, and industry-ready UAV systems.
+
+      </p>
+
+      <div class="row align-items-center mt-5">
+
+        <!-- LEFT: Certificate Image -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="certificate-img">
+            <!-- Replace src with your certificate image URL -->
+            <img
+              src="/certificate.png"
+              alt="SkySkill Drone Engineering Certificate"
+              class="img-fluid certificate-image"
+            >
+          </div>
+        </div>
+
+        <!-- RIGHT: Certificate Benefits -->
+        <div class="col-lg-6">
+          <div class="text-white">
+
+            <h3 class="mb-4">
+              <i class="fas fa-award me-2" style="color: var(--secondary);"></i>
+              Certification Benefits
+            </h3>
+
+            <div class="cert-benefit">
+              <i class="fas fa-check-circle"></i>
+              <div class="cert-text">
+                <h6>Industry-Recognized Skill Validation</h6>
+                <p>
+                  Demonstrates your hands-on expertise in drone engineering systems
+                </p>
+              </div>
+            </div>
+
+            <div class="cert-benefit">
+              <i class="fas fa-check-circle"></i>
+              <div class="cert-text">
+                <h6>Career & Resume Advantage</h6>
+                <p>
+                  Strengthens your profile for R&D roles, startups, and UAV companies
+                </p>
+              </div>
+            </div>
+
+            <div class="cert-benefit">
+              <i class="fas fa-check-circle"></i>
+              <div class="cert-text">
+                <h6>Proof of Practical Training</h6>
+                <p>
+                  Validates real-world experience in assembly, testing, and configuration
+                </p>
+              </div>
+            </div>
+
+            <div class="cert-benefit">
+              <i class="fas fa-check-circle"></i>
+              <div class="cert-text">
+                <h6>Lifetime Validity</h6>
+                <p>
+                  Certification remains valid and relevant throughout your career
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        <!-- Mentors -->
+        <section class="py-5" id="mentors">
+            <div class="container my-5">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Meet Our Mentors</h2>
+                    <p class="text-muted mt-3">Learn from industry experts and certified professionals</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-3">
+                        <div class="mentor-card">
+                            <div class="mentor-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5 style="color: var(--primary);">Person A</h5>
+                            <p class="text-muted mb-2">Master Trainer</p>
+                            <p class="small text-muted">15+ years in aviation, DGCA certified with 5000+ flight hours</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mentor-card">
+                            <div class="mentor-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5 style="color: var(--primary);">Person B</h5>
+                            <p class="text-muted mb-2">Trainer</p>
+                            <p class="small text-muted">Award-winning cinematographer, 200+ commercial projects</p>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-3">
+                        <div class="mentor-card">
+                            <div class="mentor-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5 style="color: var(--primary);">Amit Patel</h5>
+                            <p class="text-muted mb-2">Technical Specialist</h5>
+                            <p class="small text-muted">Drone tech engineer, ex-DRDO, 10+ years experience</p>
+                        </div>
+                    </div> -->
+                    <!-- <div class="col-md-3">
+                        <div class="mentor-card">
+                            <div class="mentor-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5 style="color: var(--primary);">Sneha Reddy</h5>
+                            <p class="text-muted mb-2">Survey & Mapping Lead</p>
+                            <p class="small text-muted">GIS expert, completed 100+ mapping projects nationwide</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Prerequisites -->
+        <section class="py-5 bg-light">
+            <div class="container my-5">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="section-title mb-4">Prerequisites</h2>
+                        <div class="advantage-item">
+                            <div class="advantage-icon">
+                                <i class="fas fa-birthday-cake"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--primary);">Age Requirement</h5>
+                                <p class="text-muted mb-0">Must be at least 18 years old to enroll in this course</p>
+                            </div>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--primary);">Education</h5>
+                                <p class="text-muted mb-0">Minimum 10th grade pass (for basic course)</p>
+                            </div>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--primary);">Medical Fitness</h5>
+                                <p class="text-muted mb-0">Basic medical fitness certificate required for DGCA exam</p>
+                            </div>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-icon">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--primary);">Equipment</h5>
+                                <p class="text-muted mb-0">No need to own a drone - all equipment provided during training</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="section-title mb-4">What's Included</h2>
+                        <div class="advantage-item">
+                            <div class="advantage-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--primary);">Study Materials</h5>
+                                <p class="text-muted mb-0">Comprehensive e-books, video tutorials, and reference guides</p>
+                            </div>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-icon">
+                                <i class="fas fa-plane-departure"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--primary);">Drone Access</h5>
+                                <p class="text-muted mb-0">Train with professional DJI drones worth ₹2-5 lakhs</p>
+                            </div>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--primary);">Meals & Refreshments</h5>
+                                <p class="text-muted mb-0">Lunch and snacks provided during training days</p>
+                            </div>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--primary);">Digital Sky Registration</h5>
+                                <p class="text-muted mb-0">Complete guidance for Digital Sky platform registration</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enroll Now Section -->
+<section class="py-5 enroll-section">
+  <div class="container my-5">
+
+    <div class="row align-items-center g-4">
+      
+      <!-- Left Content -->
+      <div class="col-lg-7">
+        <h2 class="enroll-title">
+          Ready to Become a <span>Drone Development Engineer?</span>
+        </h2>
+        <p class="enroll-text">
+          Join our industry-oriented drone engineering program and gain
+          hands-on experience in drone design, control systems, autonomy,
+          and real-world deployment.
+        </p>
+
+        <ul class="enroll-points">
+          <li><i class="fas fa-check-circle"></i> Hands-on drone build & testing</li>
+          <li><i class="fas fa-check-circle"></i> Industry-ready technical skills</li>
+          <li><i class="fas fa-check-circle"></i> Expert mentors & guided projects</li>
+          <li><i class="fas fa-check-circle"></i> Certificate of completion</li>
+        </ul>
+      </div>
+
+      <!-- Right Card -->
+      <div class="col-lg-5">
+        <div class="enroll-card">
+
+          <div class="price-box">
+            <span class="price-label">Course Fee</span>
+            <h3 class="price">
+            ₹41,999 <span>+ GST</span>
+            </h3>
+            <p class="price-note">
+            Includes advanced labs • Accommodation extra
+            </p>
+          </div>
+
+          <button class="btn btn-enroll w-100">
+            Enroll Now <i class="fas fa-arrow-right ms-2"></i>
+          </button>
+
+          <p class="enroll-note">
+            Limited seats available • Batch starts soon
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+    <!-- FAQ Section -->
+<section class="py-5 bg-light" id="faq">
+  <div class="container my-5">
+
+    <div class="text-center mb-5">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="text-muted mt-3">
+        Clear answers to the most common questions about the program
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+
+        <div class="accordion custom-accordion" id="faqAccordion">
+
+          <!-- FAQ 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button"
+                data-bs-toggle="collapse" data-bs-target="#faq1">
+                <span class="faq-icon">
+                  <i class="fas fa-question-circle"></i>
+                </span>
+                Is DGCA certification mandatory for commercial drone operations?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show"
+              data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes. As per DGCA regulations, anyone operating drones commercially
+                in India must hold a valid certification. This program prepares
+                you with the technical and regulatory foundation required.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#faq2">
+                <span class="faq-icon">
+                  <i class="fas fa-circle-check"></i>
+                </span>
+                Do I need to own a drone to join this course?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse"
+              data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                No. All required drones, components, tools, and test equipment
+                are provided during the training. You will work on multiple
+                drone setups under expert supervision.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#faq3">
+                <span class="faq-icon">
+                  <i class="fas fa-briefcase"></i>
+                </span>
+                What career opportunities are available after completing this course?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse"
+              data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Graduates can explore roles in drone R&D, UAV startups,
+                system integration, testing, field operations, and
+                autonomous systems development.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#faq4">
+                <span class="faq-icon">
+                  <i class="fas fa-credit-card"></i>
+                </span>
+                Is installment-based payment available?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse"
+              data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes. Flexible installment options are available.
+                Please connect with the admissions team for
+                customized payment plans.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+    </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
