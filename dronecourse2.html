@@ -11,6 +11,9 @@
       rel="stylesheet"
     />
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
     <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -526,11 +529,76 @@
           padding: 0;
         }
       }
+
+      /* slider */
+
+/* ===== Image Carousel Styling ===== */
+
+.image-carousel img{
+  width:100%;
+  height:140px;
+  object-fit:contain;
+  transition:.3s;
+  border: 1px solid var(--secondary);
+  border-radius: 10px;
+}
+
+/* practical images bigger */
+.practical-img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  border:1px solid var(--primary);
+  border-radius:16px;
+  transition:0.3s;
+}
+
+/* mobile */
+@media(max-width:768px){
+  .practical-img{
+    height:200px;
+  }
+}
+
+
+/* mobile adjustments */
+@media(max-width:768px){
+  .image-carousel img{height:80px;}
+  /* .practical-carousel img{height:200px;} */
+}
+
+
+/* -- new added - 03/02/2026 -- */
+.cert-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.enroll-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.enroll-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.enroll-highlights i {
+  color: var(--primary);
+}
     </style>
   </head>
   <body>
-    <!-- Course Detail Page -->
-    <div id="coursePage">
+
+
       <!-- Course Hero -->
       <section class="hero" id="home">
         <div class="container">
@@ -538,11 +606,7 @@
             <!-- Left Content -->
             <div class="col-lg-6 hero-content">
               <h1 style="font-weight: 800">
-                Become an
-                <span style="color: var(--secondary)"
-                  >Advanced Drone Dev Engineer</span
-                ><br />
-                Build Autonomous & AI-Powered UAV Systems
+               Advanced Drone Dev Engineer with AI & DGCA Licence
               </h1>
 
               <p class="mt-4">
@@ -689,6 +753,21 @@
                     </div>
                   </div>
 
+                    <!-- NEW ADDED  -->
+                       <div
+                    class="mb-3 pb-3"
+                    style="border-bottom: 1px solid rgba(255, 255, 255, 0.2)"
+                  >
+                    <div class="d-flex justify-content-between text-white">
+                      <span
+                        > <i class="bi bi-mortarboard me-2"
+                        style="color: var(--secondary)"></i>Eligibility</span
+                      >
+                      <strong>10th Pass & Above</strong>
+                    </div>
+                  </div>
+
+                  
                   <div
                     class="mb-3 pb-3"
                     style="border-bottom: 1px solid rgba(255, 255, 255, 0.2)"
@@ -749,7 +828,7 @@
                         ></i
                         >Certificate</span
                       >
-                      <strong>Advanced Certification</strong>
+                      <strong>DGCA Certified</strong>
                     </div>
                   </div>
 
@@ -933,6 +1012,127 @@
           </div>
         </div>
       </section>
+
+      <!-- Hiring Partners Carousel -->
+<section class="py-5" id="partners">
+  <div class="container my-5">
+    <div class="text-center mb-4">
+      <h2 class="section-title">Our Hiring Partners</h2>
+      <p class="text-muted mt-2">Trusted by industry leaders</p>
+    </div>
+
+    <div id="partnersCarousel" 
+         class="carousel slide image-carousel" 
+         data-bs-ride="carousel" 
+         data-bs-interval="2000">
+
+      <div class="carousel-inner">
+
+        <!-- slide 1 -->
+        <div class="carousel-item active">
+          <div class="row text-center g-4">
+            <div class="col-4 col-md-2"><img src="/hiring/client1.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client2.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client3.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client4.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client5.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client6.png" alt=""></div>
+          </div>
+        </div>
+
+        <!-- slide 2 -->
+        <div class="carousel-item">
+          <div class="row text-center g-4">
+            <div class="col-4 col-md-2"><img src="/hiring/client1.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client2.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client3.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client4.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client5.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client6.png" alt=""></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Practical Working Carousel -->  
+<section class="py-5 bg-light" id="practical">
+  <div class="container">   
+    
+    <div class="text-center mb-4">
+      <h2 class="section-title">Practical Working Experience</h2>
+      <p class="text-muted mt-2">Real projects. Real environment.</p>
+    </div>
+
+    <!-- Carousel wrapper -->
+    <div class="row justify-content-center">
+      <div class="col-12">
+
+        <div id="practicalCarousel"
+             class="carousel slide practical-carousel"
+             data-bs-ride="carousel"
+             data-bs-interval="2500"
+             data-bs-pause="false">
+
+          <div class="carousel-inner">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+              <div class="row g-4">
+                <div class="col-12 col-md-4">
+                  <img src="/practical/1.jpeg" class="practical-img" alt="">
+                </div>
+                <div class="col-12 col-md-4">
+                  <img src="/practical/2.jpeg" class="practical-img" alt="">
+                </div>
+                <div class="col-12 col-md-4">
+                  <img src="/practical/3.jpeg" class="practical-img" alt="">
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+              <div class="row g-4">
+                <div class="col-12 col-md-4">
+                  <img src="/practical/4.jpeg" class="practical-img" alt="">
+                </div>
+                <div class="col-12 col-md-4">
+                  <img src="/practical/7.jpeg" class="practical-img" alt="">
+                </div>
+                <div class="col-12 col-md-4">
+                  <img src="/practical/6.jpeg" class="practical-img" alt="">
+                </div>
+              </div>
+            </div>
+
+                 <!-- Slide 3 -->
+            <div class="carousel-item">
+              <div class="row g-4">
+                <div class="col-12 col-md-4">
+                  <img src="/practical/7.jpeg" class="practical-img" alt="">
+                </div>
+                <div class="col-12 col-md-4">
+                  <img src="/practical/12.jpeg" class="practical-img" alt="">
+                </div>
+                <div class="col-12 col-md-4">
+                  <img src="/practical/13.jpeg" class="practical-img" alt="">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
       <!-- Course Contents -->
       <section class="py-5" id="curriculum">
@@ -1472,90 +1672,71 @@
         </div>
       </section>
 
-      <!-- Certificate -->
+       <!-- Certificate -->
       <section class="py-5 bg-light" id="certificate">
         <div class="container my-5">
-          <div class="certificate-section">
-            <h2 class="text-white mb-3" style="font-weight: 900">
-              Get Advanced Certified in Drone Engineering & Autonomous Systems
-            </h2>
+          <div class="certificate-section text-center">
+          <h2 class="text-white mb-3" style="font-weight: 900">
+             Get Advanced Certified in Drone Engineering & Autonomous Systems
+          </h2>
 
-            <p class="text-white mb-4" style="max-width: 700px">
-              This certification validates advanced expertise in AI-powered
+          <p class="text-white mb-4" style=" text-align: center;">
+                  This certification validates advanced expertise in AI-powered
               drones, autonomous navigation, flight firmware, and industry-ready
               UAV systems.
-            </p>
+          </p>
 
-            <div class="row align-items-center mt-5">
-              <!-- LEFT: Certificate Image -->
-              <div class="col-lg-6 mb-4 mb-lg-0">
-                <div class="certificate-img">
-                  <!-- Replace src with your certificate image URL -->
-                  <img
-                    src="/certificate.png"
-                    alt="SkySkill Drone Engineering Certificate"
-                    class="img-fluid certificate-image"
-                  />
-                </div>
-              </div>
+<div class="row mt-5 g-4 justify-content-center">
 
-              <!-- RIGHT: Certificate Benefits -->
-              <div class="col-lg-6">
-                <div class="text-white">
-                  <h3 class="mb-4">
-                    <i
-                      class="fas fa-award me-2"
-                      style="color: var(--secondary)"
-                    ></i>
-                    Certification Benefits
-                  </h3>
+  <!-- DGCA Certificate -->
+  <div class="col-lg-6">
+    <div class="certificate-card text-center h-100">
+      <img
+        src="/dgca_certificate.jpeg"
+        alt="DGCA Drone Pilot Certification"
+        class="img-fluid mb-4 certificate-image"
+      />
 
-                  <div class="cert-benefit">
-                    <i class="fas fa-check-circle"></i>
-                    <div class="cert-text">
-                      <h6>Industry-Recognized Skill Validation</h6>
-                      <p>
-                        Demonstrates your hands-on expertise in drone
-                        engineering systems
-                      </p>
-                    </div>
-                  </div>
+      <h4 class="text-white fw-bold">DGCA Certification</h4>
+      <p class="text-white-50">
+        Government-authorized DGCA certification required for legal commercial
+        drone operations in India.
+      </p>
 
-                  <div class="cert-benefit">
-                    <i class="fas fa-check-circle"></i>
-                    <div class="cert-text">
-                      <h6>Career & Resume Advantage</h6>
-                      <p>
-                        Strengthens your profile for R&D roles, startups, and
-                        UAV companies
-                      </p>
-                    </div>
-                  </div>
+      <ul class="list-unstyled text-white-50 mt-3">
+        <li>✔ Mandatory for commercial flying</li>
+        <li>✔ Recognized across India</li>
+        <li>✔ Complies with DGCA regulations</li>
+      </ul>
+    </div>
+  </div>
 
-                  <div class="cert-benefit">
-                    <i class="fas fa-check-circle"></i>
-                    <div class="cert-text">
-                      <h6>Proof of Practical Training</h6>
-                      <p>
-                        Validates real-world experience in assembly, testing,
-                        and configuration
-                      </p>
-                    </div>
-                  </div>
+  <!-- SkyySkill Certificate -->
+  <div class="col-lg-6">
+    <div class="certificate-card text-center h-100">
+      <img
+        src="/certificate.png"
+        alt="SkyySkill Drone Development Certification"
+        class="img-fluid mb-4 certificate-image"
+      />
 
-                  <div class="cert-benefit">
-                    <i class="fas fa-check-circle"></i>
-                    <div class="cert-text">
-                      <h6>Lifetime Validity</h6>
-                      <p>
-                        Certification remains valid and relevant throughout your
-                        career
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <h4 class="text-white fw-bold">SkyySkill Certification</h4>
+      <p class="text-white-50">
+        Industry-focused certification validating hands-on expertise in drone
+        engineering, AI integration, and system development.
+      </p>
+
+      <ul class="list-unstyled text-white-50 mt-3">
+        <li>✔ Skill-based & project-driven</li>
+        <li>✔ Resume & career focused</li>
+        <li>✔ Lifetime validity</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
           </div>
         </div>
       </section>
@@ -1748,6 +1929,31 @@
                   </p>
                 </div>
 
+                  <!-- NEW ADDED -->
+                 <!-- Certified By -->
+            <div class="certified-by mt-3 d-flex flex-column align-items-center text-center">
+              <span class="cert-label mb-2">Certified By :</span>
+                <img src="/dgca.png" alt="DGCA Certification Logo" height="70" class="border border-gray"/>
+            </div>
+
+              <!-- Program Highlights -->
+              <ul class="enroll-highlights mt-3">
+                <li>
+                  <i class="bi bi-geo-alt"></i>
+                  3 days Hands-on at RPTO (Remote Pilot Training Organization)
+                </li>
+                  <li>
+                  <i class="ms-4"> (Near your Location)
+                  </i>                
+                </li>
+             
+                <li>
+                  <i class="bi bi-house"></i>
+                  Accommodation required
+                </li>
+              </ul>
+
+
                 <button
                   class="btn btn-primary-custom mt-4 w-100"
                   data-bs-toggle="modal"
@@ -1897,7 +2103,6 @@
           </div>
         </div>
       </section>
-    </div>
 
     <!-- ========================= -->
     <!-- Enroll Modal -->

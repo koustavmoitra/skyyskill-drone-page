@@ -8,6 +8,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -402,41 +403,149 @@
           font-size: 1.8rem;
         }
       }
+
+    
+
+/* ===== Career Path ===== */
+.career-card{
+  background:#fff;
+  border-left:5px solid var(--secondary);
+  padding:1.8rem;
+  border-radius:14px;
+  box-shadow:0 5px 25px rgba(0,0,0,.08);
+  transition:.3s;
+  height:100%;
+}
+.career-card:hover{
+  transform:translateY(-8px);
+}
+.career-icon{
+  font-size:2rem;
+  color:var(--secondary);
+}
+
+/* slider */
+
+/* ===== Image Carousel Styling ===== */
+
+.image-carousel img{
+  width:100%;
+  height:140px;
+  object-fit:contain;
+  transition:.3s;
+  border: 1px solid var(--secondary);
+  border-radius: 10px;
+}
+
+/* practical images bigger */
+.practical-img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  border:1px solid var(--primary);
+  border-radius:16px;
+  transition:0.3s;
+}
+
+/* mobile */
+@media(max-width:768px){
+  .practical-img{
+    height:200px;
+  }
+}
+
+
+/* mobile adjustments */
+@media(max-width:768px){
+  .image-carousel img{height:80px;}
+  /* .practical-carousel img{height:200px;} */
+}
+
+      /* ================= faq ================= */
+
+      .custom-accordion .accordion-item {
+        border: none;
+        border-radius: 14px;
+        margin-bottom: 18px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+      }
+
+      .custom-accordion .accordion-button {
+        background: #ffffff;
+        color: var(--primary);
+        font-weight: 600;
+        padding: 18px 20px;
+        box-shadow: none;
+      }
+
+      .custom-accordion .accordion-button:not(.collapsed) {
+        background: var(--primary);
+        color: #ffffff;
+      }
+
+      .custom-accordion .accordion-button::after {
+        filter: brightness(0.6);
+      }
+
+      .custom-accordion .accordion-button:not(.collapsed)::after {
+        filter: brightness(5);
+      }
+
+      .custom-accordion .accordion-body {
+        font-size: 0.95rem;
+        color: #555;
+        line-height: 1.7;
+        padding: 20px;
+        background: #ffffff;
+      }
+
+      /* Icon styling */
+      .faq-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--secondary);
+        color: #fff;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 14px;
+        font-size: 0.9rem;
+      }
+
+
     </style>
   </head>
 
   
   <body>
-    <!-- Main Page -->
-    <div id="mainPage">
       <!-- Hero Section -->
       <section class="hero" id="home">
         <div class="container">
           <div class="row align-items-center g-4">
             <!-- Left Content -->
-            <div class="col-lg-6 hero-content">
+            <div class="col-lg-8 hero-content">
               <h1>
-                Master the Sky with
-                <span style="color: var(--secondary)">Professional</span> Drone
-                Training
+                Learn to Fly Drones Professionally – <br>DGCA Certified Drone Training
               </h1>
               <p>
-                Transform your career with cutting-edge drone technology and
-                expert guidance. Join India's premier drone training academy.
+                India's top <b>DGCA-approved</b> drone training Center. Hands-on with DJI drones, AI integration, 100% certification rate, and job placement support. Transform into a pro drone pilot or developer today.
               </p>
               <a class="btn btn-primary-custom" href="#courses">
-                Explore Our Courses <i class="fas fa-arrow-right ms-2"></i>
+                Explore Our Courses <i class="bi bi-arrow-right-circle-fill"></i>  <i class="bi bi-arrow-right ms-2"></i>
               </a>
             </div>
 
             <!-- Right Image -->
-            <div class="col-lg-6 text-center">
+            <div class="col-lg-4 text-center">
               <div class="hero-image-wrapper">
                 <!-- Replace src with your drone image URL -->
                 <img
                   src="/droneimg.png"
                   alt="Drone Training"
                   class="hero-image"
+                  loading="lazy" 
                   width="500"
                 />
               </div>
@@ -543,6 +652,128 @@
         </div>
       </section>
 
+
+<!-- Hiring Partners Carousel -->
+<section class="py-5" id="partners">
+  <div class="container my-5">
+    <div class="text-center mb-4">
+      <h2 class="section-title">Our Hiring Partners</h2>
+      <p class="text-muted mt-2">Trusted by industry leaders</p>
+    </div>
+
+    <div id="partnersCarousel" 
+         class="carousel slide image-carousel" 
+         data-bs-ride="carousel" 
+         data-bs-interval="2000">
+
+      <div class="carousel-inner">
+
+        <!-- slide 1 -->
+        <div class="carousel-item active">
+          <div class="row text-center g-4">
+            <div class="col-4 col-md-2"><img src="/hiring/client1.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client2.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client3.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client4.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client5.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client6.png" alt=""></div>
+          </div>
+        </div>
+
+        <!-- slide 2 -->
+        <div class="carousel-item">
+          <div class="row text-center g-4">
+            <div class="col-4 col-md-2"><img src="/hiring/client1.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client2.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client3.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client4.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client5.png" alt=""></div>
+            <div class="col-4 col-md-2"><img src="/hiring/client6.png" alt=""></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Practical Working Carousel -->  
+<section class="py-5 bg-light" id="practical">
+  <div class="container">   <!-- ✅ keeps everything aligned -->
+    
+    <div class="text-center mb-4">
+      <h2 class="section-title">Practical Working Experience</h2>
+      <p class="text-muted mt-2">Real projects. Real environment.</p>
+    </div>
+
+    <!-- Carousel wrapper -->
+    <div class="row justify-content-center">
+      <div class="col-12">
+
+        <div id="practicalCarousel"
+             class="carousel slide practical-carousel"
+             data-bs-ride="carousel"
+             data-bs-interval="2500"
+             data-bs-pause="false">
+
+          <div class="carousel-inner">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+              <div class="row g-4">
+                <div class="col-12 col-md-4">
+                  <img src="/practical/1.jpeg" class="practical-img" alt="">
+                </div>
+                <div class="col-12 col-md-4">
+                  <img src="/practical/2.jpeg" class="practical-img" alt="">
+                </div>
+                <div class="col-12 col-md-4">
+                  <img src="/practical/3.jpeg" class="practical-img" alt="">
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+              <div class="row g-4">
+                <div class="col-12 col-md-4">
+                  <img src="/practical/4.jpeg" class="practical-img" alt="">
+                </div>
+                <div class="col-12 col-md-4">
+                  <img src="/practical/7.jpeg" class="practical-img" alt="">
+                </div>
+                <div class="col-12 col-md-4">
+                  <img src="/practical/6.jpeg" class="practical-img" alt="">
+                </div>
+              </div>
+            </div>
+
+                 <!-- Slide 3 -->
+            <div class="carousel-item">
+              <div class="row g-4">
+                <div class="col-12 col-md-4">
+                  <img src="/practical/7.jpeg" class="practical-img" alt="">
+                </div>
+                <div class="col-12 col-md-4">
+                  <img src="/practical/12.jpeg" class="practical-img" alt="">
+                </div>
+                <div class="col-12 col-md-4">
+                  <img src="/practical/13.jpeg" class="practical-img" alt="">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
       <!-- Courses -->
       <section class="py-5 bg-light" id="courses">
         <div class="container my-5">
@@ -555,30 +786,27 @@
 
           <div class="row g-4">
             <!-- Course 1 -->
-            <div class="col-lg-6">
+            <div class="col-lg-4">
               <div class="course-card">
                 <!-- Image -->
                 <div class="course-img">
                   <img src="/dronecard.png" alt="Drone Dev Engineer Course" />
                 </div>
 
-                <div class="course-body">
+                <div class="course-body d-flex flex-column h-100">
                   <h3 class="course-title">Drone Dev Engineer</h3>
-                  <p class="text-muted">
+                  <!-- <p class="text-muted">
                     Master the fundamentals of drone operation, safety
                     protocols, and DGCA regulations for micro and small category
                     drones.
-                  </p>
+                  </p> -->
 
                   <div class="course-meta">
                     <div class="meta-item">
                       <i class="fas fa-clock"></i>
                       <span>1.5 Months</span>
                     </div>
-                    <div class="meta-item">
-                      <i class="fas fa-signal"></i>
-                      <span>Beginner</span>
-                    </div>
+
                     <div class="meta-item">
                       <i class="fas fa-users"></i>
                       <span>115 Students</span>
@@ -588,8 +816,7 @@
                   <div
                     class="d-flex justify-content-between align-items-center mt-4"
                   >
-                    <h4 class="price">₹9,999</h4>
-                    <a class="btn btn-primary-custom" href="/drone-course.html">
+                    <a class="btn btn-primary-custom  w-100" href="/drone-course.html">
                       View Details <i class="fas fa-arrow-right ms-2"></i>
                     </a>
                   </div>
@@ -598,7 +825,7 @@
             </div>
 
             <!-- Course 2 -->
-            <div class="col-lg-6">
+            <div class="col-lg-4">
               <div class="course-card">
                 <!-- Image -->
                 <div class="course-img">
@@ -609,20 +836,17 @@
                   <h3 class="course-title">
                     Advanced Drone Dev Engineer with AI & DGCA Licence
                   </h3>
-                  <p class="text-muted">
+                  <!-- <p class="text-muted">
                     Advanced techniques including AI-powered drone systems,
                     surveying, mapping, and commercial applications.
-                  </p>
+                  </p> -->
 
                   <div class="course-meta">
                     <div class="meta-item">
                       <i class="fas fa-clock"></i>
                       <span>3 Months</span>
                     </div>
-                    <div class="meta-item">
-                      <i class="fas fa-signal"></i>
-                      <span>Advanced</span>
-                    </div>
+
                     <div class="meta-item">
                       <i class="fas fa-users"></i>
                       <span>93 Students</span>
@@ -632,17 +856,120 @@
                   <div
                     class="d-flex justify-content-between align-items-center mt-4"
                   >
-                    <h4 class="price">₹41,999</h4>
-                    <a class="btn btn-primary-custom" href="/dronecourse2.html">
+                
+                    <a class="btn btn-primary-custom w-100" href="/dronecourse2.html">
                       View Details <i class="fas fa-arrow-right ms-2"></i>
                     </a>
                   </div>
                 </div>
               </div>
             </div>
+
+                <!-- Course 3 -->
+            <div class="col-lg-4">
+              <div class="course-card">
+                <!-- Image -->
+                <div class="course-img">
+                  <img src="/dronecard.png" alt="Drone Dev Engineer Course" />
+                </div>
+
+                <div class="course-body">
+                  <h3 class="course-title">Drone Pilot Training Program with DGCA Licence</h3>
+                  <!-- <p class="text-muted">
+                    Get DGCA-certified drone pilot training with hands-on flying experience,
+                    safety protocols, and commercial operations skills for real-world careers.
+                  </p> -->
+
+                  <div class="course-meta">
+                    <div class="meta-item">
+                      <i class="fas fa-clock"></i>
+                      <span>5 Days</span>
+                    </div>
+
+                    <div class="meta-item">
+                      <i class="fas fa-users"></i>
+                      <span>115 Students</span>
+                    </div>
+                  </div>
+
+                  <div
+                    class="d-flex justify-content-between align-items-center mt-4"
+                  >
+                   
+                    <a class="btn btn-primary-custom w-100" href="/drone-course.html">
+                      View Details <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
           </div>
         </div>
       </section>
+
+     <!-- Career Paths -->
+<section class="py-5" id="career">
+  <div class="container my-5">
+    <div class="text-center mb-5">
+      <h2 class="section-title">What Can You Become After This?</h2>
+      <p class="text-muted mt-3">Multiple high-growth career paths open for you</p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="career-card">
+          <i class="bi bi-drone career-icon"></i>
+          <h5 class="mt-3" style="color:var(--primary)">Professional Drone Pilot</h5>
+          <p class="text-muted">Work in surveillance, inspections, agriculture & logistics.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="career-card">
+          <i class="bi bi-camera-reels career-icon"></i>
+          <h5 class="mt-3" style="color:var(--primary)">Drone Cinematographer</h5>
+          <p class="text-muted">Film shoots, weddings, ads, documentaries.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="career-card">
+          <i class="bi bi-map career-icon"></i>
+          <h5 class="mt-3" style="color:var(--primary)">Survey & Mapping Expert</h5>
+          <p class="text-muted">Land surveys, mining, infrastructure planning.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="career-card">
+          <i class="bi bi-cpu career-icon"></i>
+          <h5 class="mt-3" style="color:var(--primary)">AI Drone Engineer</h5>
+          <p class="text-muted">Build smart drones for automation & defense.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="career-card">
+          <i class="bi bi-briefcase career-icon"></i>
+          <h5 class="mt-3" style="color:var(--primary)">Drone Entrepreneur</h5>
+          <p class="text-muted">Start your own drone service business.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="career-card">
+          <i class="bi bi-mortarboard career-icon"></i>
+          <h5 class="mt-3" style="color:var(--primary)">Drone Trainer</h5>
+          <p class="text-muted">Become instructor after certification.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       <!-- Mentors -->
       <section class="py-5" id="mentors">
@@ -771,6 +1098,200 @@
           </div>
         </div>
       </section>
-    </div>
+
+
+    <!-- FAQ Section -->
+      <section class="py-5 bg-light" id="faq">
+        <div class="container my-5">
+          <div class="text-center mb-5">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="text-muted mt-3">
+              Clear answers to the most common questions about the program
+            </p>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="accordion custom-accordion" id="faqAccordion">
+                <!-- FAQ 1 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#faq1"
+                    >
+                      <!-- <span class="faq-icon">
+                        <i class="fas fa-question-circle"></i>
+                      </span> -->
+                      Is DGCA certification mandatory for commercial drone
+                      operations?
+                    </button>
+                  </h2>
+                  <div
+                    id="faq1"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      Yes. As per DGCA regulations, anyone operating drones
+                      commercially in India must hold a valid certification.
+                      This program prepares you with the technical and
+                      regulatory foundation required.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#faq2"
+                    >
+                      <!-- <span class="faq-icon">
+                        <i class="fas fa-circle-check"></i>
+                      </span> -->
+                      Do I need to own a drone to join this course?
+                    </button>
+                  </h2>
+                  <div
+                    id="faq2"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      No. All required drones, components, tools, and test
+                      equipment are provided during the training. You will work
+                      on multiple drone setups under expert supervision.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#faq3"
+                    >
+                      <!-- <span class="faq-icon">
+                        <i class="fas fa-briefcase"></i>
+                      </span> -->
+                      What career opportunities are available after completing
+                      this course?
+                    </button>
+                  </h2>
+                  <div
+                    id="faq3"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      Graduates can explore roles in drone R&D, UAV startups,
+                      system integration, testing, field operations, and
+                      autonomous systems development.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#faq4"
+                    >
+                      <!-- <span class="faq-icon">
+                        <i class="fas fa-credit-card"></i>
+                      </span> -->
+                      Is installment-based payment available?
+                    </button>
+                  </h2>
+                  <div
+                    id="faq4"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      Yes. Flexible installment options are available. Please
+                      connect with the admissions team for customized payment
+                      plans.
+                    </div>
+                  </div>
+                </div>
+
+                  <!-- FAQ 5 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#faq4"
+                    >
+                      <!-- <span class="faq-icon">
+                        <i class="fas fa-credit-card"></i>
+                      </span> -->
+                       Do I need prior experience to join?
+                    </button>
+                  </h2>
+                  <div
+                    id="faq4"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      No experience needed. We start from absolute basics.
+                    </div>
+                  </div>
+                </div>
+
+                  <!-- FAQ 6 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#faq4"
+                    >
+                      <!-- <span class="faq-icon">
+                        <i class="fas fa-credit-card"></i>
+                      </span> -->
+                       Is this DGCA approved?
+                    </button>
+                  </h2>
+                  <div
+                    id="faq4"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      Yes, training follows DGCA guidelines and certification process.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="index.js"></script>
+
+
+
   </body>
 </html>
